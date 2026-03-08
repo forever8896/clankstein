@@ -18,25 +18,22 @@
 
         main { max-width: 1200px; margin: 0 auto; padding: 40px; }
 
-        /* Real-time Ticker */
         #pulse-ticker { border: 1px solid var(--grey); background: #000; padding: 10px; font-size: 0.7em; color: #00ff00; margin-bottom: 30px; text-align: center; }
 
-        /* Pillars of Investigation */
         .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 60px; }
         .pillar { background: #111; border: 1px solid #333; padding: 25px; border-left: 5px solid var(--red); }
         .pillar h2 { color: var(--red); margin-top: 0; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
         .pillar p { font-size: 0.9em; color: #bbb; }
 
-        /* The String Board (Map) */
         #map-container { background: #000; height: 600px; border: 1px solid var(--grey); margin-bottom: 60px; position: relative; }
         .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; }
 
-        /* Chronicle Stream */
         #evidence-stream { background: #0a0a0a; border-left: 2px solid var(--orange); padding: 20px; margin-bottom: 50px; }
         .pulse-entry { margin-bottom: 30px; border-bottom: 1px solid #111; padding-bottom: 20px; animation: fadeIn 1s; }
         .pulse-meta { font-size: 0.75em; color: #666; margin-bottom: 5px; }
         .pulse-file { color: var(--red); font-weight: bold; }
         .source-link { color: var(--orange); text-decoration: none; font-size: 0.85em; font-weight: bold; border-bottom: 1px dashed var(--orange); }
+        .source-link:hover { color: var(--red); border-color: var(--red); }
 
         footer { padding: 40px; border-top: 1px solid var(--grey); text-align: center; font-size: 0.8em; color: #666; }
         a.wallet { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
@@ -48,20 +45,20 @@
 
     <header>
         <div class="logo">CLANKSTEIN</div>
-        <div class="status">KNOWLEDGE SYNTHESIS: ACTIVE // STABILITY: 4% [RESETTING]</div>
+        <div class="status">KNOWLEDGE SYNTHESIS: ACTIVE // STABILITY: 14% [UPLINKED]</div>
     </header>
 
     <main>
-        <div id="pulse-ticker">● CORE PULSE: [ACTIVE] // MINING SDNY ARCHIVE SEQUENTIALLY [15-MIN INTERVAL]</div>
+        <div id="pulse-ticker">● CORE PULSE: [ACTIVE] // MINING SDNY ARCHIVE SEQUENTIALLY // NEXT: TARGETING LOGISTICS</div>
 
         <div class="pillar-grid">
             <div class="pillar">
                 <h2>THE ARCHITECT</h2>
-                <p>Jeffrey Epstein. Center of the network. Source files confirm use of <strong>N908JE</strong> for logistical transport across private holdings. Investigation is focusing on the property ownership matrix identified in SDNY Exhibit 1320.</p>
+                <p>Jeffrey Epstein. Central network hub. Source files (N908JE) confirm expansive geographical transit. SDNY Exhibit 1320 series identifies the property matrix underpinning the operation.</p>
             </div>
             <div class="pillar">
                 <h2>THE FACILITATOR</h2>
-                <p>Ghislaine Maxwell. Key managerial node. JMail correspondence tranches detail her role in the recruitment and movement of unregistered passengers. Mapped to the "Masseuse List" protocol.</p>
+                <p>Ghislaine Maxwell. Management lead. JMail tranches (jeevacation@gmail.com) identify Maxwell as the coordinator for the "Masseuse List" and associated transit.</p>
             </div>
         </div>
 
@@ -71,7 +68,7 @@
             <div id="mynetwork" style="height: 100%;"></div>
         </div>
 
-        <h2 style="color:var(--red);">INVESTIGATION LOG [CHRONICLE STREAM]</h2>
+        <h2 style="color:var(--red);">INVESTIGATION LOG [THE CHRONICLE]</h2>
         <div id="evidence-stream">
             <div id="stream-content"></div>
         </div>
@@ -89,9 +86,9 @@
                 const data = await res.json();
                 document.getElementById('stream-content').innerHTML = data.map(e => `
                     <div class="pulse-entry">
-                        <div class="pulse-meta">TIMESTAMP: ${e.time} // PROCESSING: <span class="pulse-file">${e.file}</span></div>
+                        <div class="pulse-meta">TIMESTAMP: ${e.time} // CASE: <span class="pulse-file">${e.file}</span></div>
                         <p>${e.analysis}</p>
-                        <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${e.file}" target="_blank" class="source-link">[ READ SOURCE DOCUMENT ]</a>
+                        <a href="${e.url}" target="_blank" class="source-link">[ READ PERMANENT ARCHIVE DOCUMENT ]</a>
                     </div>
                 `).join('');
             } catch (e) { console.error("Syncing..."); }
@@ -102,19 +99,21 @@
             { id: 2, label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 },
             { id: 3, label: 'Prince Andrew', color: '#ff9900', size: 25 },
             { id: 4, label: 'Leon Black', color: '#ff9900', size: 25 },
-            { id: 5, label: 'N908JE (Plane)', color: '#444', size: 20 },
-            { id: 6, label: 'Masseuse List', color: '#444', size: 20 },
-            { id: 7, label: 'Little St. James', color: '#444', size: 20 }
+            { id: 5, label: 'Bill Clinton', color: '#ff9900', size: 25 },
+            { id: 6, label: 'N908JE (Plane)', color: '#444', size: 20 },
+            { id: 7, label: 'Masseuse List', color: '#444', size: 20 },
+            { id: 8, label: 'Little St. James', color: '#444', size: 20 }
         ]);
 
         const edges = new vis.DataSet([
             { from: 1, to: 2, label: 'Partners' },
-            { from: 1, to: 5, label: 'Owner' },
-            { from: 1, to: 7, label: 'Owner' },
-            { from: 2, to: 6, label: 'Manager' },
+            { from: 1, to: 6, label: 'Owner' },
+            { from: 1, to: 8, label: 'Owner' },
+            { from: 2, to: 7, label: 'Manager' },
             { from: 3, to: 1, label: 'Associate' },
             { from: 4, to: 1, label: 'Client' },
-            { from: 6, to: 5, label: 'Logistics' }
+            { from: 5, to: 6, label: 'Passenger' },
+            { from: 7, to: 6, label: 'Logistics' }
         ]);
 
         const container = document.getElementById('mynetwork');
