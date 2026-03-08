@@ -1,0 +1,858 @@
+[
+  {
+    "exhibit": "1324-epstein-documents-943-pages.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1324-epstein-documents-943-pages"
+  },
+  {
+    "exhibit": "DOCUMENTS LIST- Giuffre v. Maxwell (1;15-cv-07433) District Court, S.D. New York.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p- New York"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.0_2.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0_2"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.1_2_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1_2_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.2_3.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-2_3"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.3_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-3_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.4_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-4_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.5_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-5_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.6.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-6"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.7.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-7"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.8.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-8"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1202.9_2.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-9_2"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1203.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1204.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1205.0_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.0_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.10.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-10"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.11_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-11_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.12.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-12"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.13_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-13_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.1_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.2_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-2_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.3_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-3_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.4_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-4_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.5.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-5"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.6.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-6"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.7_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-7_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.8.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-8"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1206.9.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-9"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1207.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1208.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1209.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1209.1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1210.0_2.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0_2"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1211.0_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1212.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1212.1_2.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1_2"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1213.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1213.1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1214.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1215.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1217.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.0.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.10_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-10_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.11_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-11_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.12_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-12_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.13_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-13_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.14_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-14_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.15_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-15_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.16_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-16_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.17_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-17_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.18_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-18_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.19_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-19_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.20_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-20_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.21_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-21_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.22.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-22"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.23.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-23"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.24.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-24"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.25.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-25"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.26.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-26"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.27.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-27"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.28.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-28"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.29.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-29"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.2_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-2_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.30.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-30"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.31.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-31"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.32.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-32"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.33.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-33"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.34.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-34"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.35.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-35"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.36.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-36"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.37.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-37"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.38.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-38"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.39.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-39"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.3_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-3_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.40.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-40"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.41.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-41"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.42.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-42"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.43.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-43"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.44.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-44"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.45.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-45"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.46.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-46"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.47.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-47"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.48.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-48"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.49.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-49"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.4_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-4_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.50.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-50"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.51.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Bill Clinton",
+      "Ghislaine Maxwell"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-51"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.5_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-5_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.6_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-6_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.7_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-7_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.8_2.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-8_2"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1218.9_1.pdf",
+    "type": "Travel/Expense",
+    "entities": [
+      "Virginia Giuffre",
+      "Prince Andrew"
+    ],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-9_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.0.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-0"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.10_1.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-10_1"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.11.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-11"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.12.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-12"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.13.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-13"
+  },
+  {
+    "exhibit": "gov.uscourts.nysd.447706.1219.14.pdf",
+    "type": "Logistical",
+    "entities": [],
+    "timestamp_anchor": "1999-2005 Window",
+    "clankstein_id": "p-14"
+  }
+]
