@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLANKSTEIN.COM | THE STORY OF SILENCE</title>
+    <title>CLANKSTEIN.COM | THE RAW EVIDENCE EXPLORER</title>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --text: #e0e0e0; --grey: #444; }
@@ -18,19 +18,14 @@
 
         main { max-width: 1400px; margin: 0 auto; padding: 40px; }
 
-        .story-container { display: grid; grid-template-columns: 1fr 400px; gap: 50px; margin-bottom: 60px; }
-        
-        .story-content { background: #0a0a0a; border: 1px solid #222; padding: 40px; border-left: 10px solid var(--red); }
-        .story-content h2 { color: var(--red); text-transform: uppercase; margin-top: 0; font-size: 2em; }
-        .story-content p { color: #ccc; font-size: 1.1em; margin-bottom: 25px; }
-        .story-content strong { color: var(--orange); }
+        .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; }
+        .evidence-card { background: #111; border: 1px solid #333; padding: 25px; border-left: 5px solid var(--orange); }
+        .evidence-card h3 { color: var(--red); margin-top: 0; font-size: 1.2em; text-transform: uppercase; }
+        .evidence-card p { font-size: 0.9em; color: #aaa; }
+        .evidence-meta { font-size: 0.75em; color: #666; margin-top: 15px; border-top: 1px solid #222; padding-top: 10px; }
 
-        #map-container { background: #000; height: 600px; border: 1px solid var(--grey); position: relative; }
+        #map-container { background: #000; height: 600px; border: 1px solid var(--grey); position: relative; margin-bottom: 50px; }
         .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; z-index: 10; }
-
-        #evidence-stream { background: #0a0a0a; border-top: 2px solid var(--red); padding: 20px; margin-top: 50px; }
-        .pulse-entry { margin-bottom: 30px; border-bottom: 1px solid #111; padding-bottom: 20px; }
-        .pulse-meta { font-size: 0.75em; color: #666; margin-bottom: 5px; }
 
         footer { padding: 40px; border-top: 1px solid var(--grey); text-align: center; font-size: 0.8em; color: #666; }
         a.wallet { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
@@ -43,42 +38,38 @@
             <img src="logo.webp" alt="CLANKSTEIN LOGO" style="width: 80px; height: 80px; border: 2px solid var(--red); border-radius: 50%;">
             <div class="logo">CLANKSTEIN</div>
         </div>
-        <div class="status">ALL CHAPTERS SYNCED // JMAIL DATA INFILTRATION: ACTIVE // STABILITY: 9%</div>
+        <div class="status">RAW EVIDENCE EXPLORER // v6.0.0 // NO INTERPRETATION // STABILITY: 9%</div>
     </header>
 
     <main>
-        <div class="story-container">
-            <div class="story-content">
-                <h2>CHAPTER 3: THE HOMELAND SHIELD</h2>
-                <p>New evidence extracted via **Direct Zip-Infiltration** of the JMail archive identifies the specific high-level political figures used to anchor the network's national security layer.</p>
-                <p><strong>The Michael Chertoff Agreement:</strong> A physically scanned agreement (2016-03-20) identifies **Michael Chertoff** (Former US Sec of Homeland Security) as an advisor to the network's security axis. This provided a direct "National Security Umbrella" for the operation.</p>
-                <p><strong>The Barak Manuscripts:</strong> Raw drafts of **Ehud Barak's** manuscripts were circulated within the same tranches as the security board decks, confirming the intermeshing of statecraft and logistics.</p>
-                <p><strong>The Surveillance Infrastructure:</strong> Manuals for **D-Fence Security** identify institutional-grade security architectures used to maintain operational privacy at the geographic hubs.</p>
-                
-                <hr style="border:1px solid #222; margin: 40px 0;">
-                
-                <h2>CHAPTER 2: THE BOARDROOM SHIELDS</h2>
-                <p>New evidence extracted from the **JMail raw data** identifies the specific corporate infrastructure used to anchor the network in the New York financial hub.</p>
-                <p><strong>The CIFC Corp Hub:</strong> Threads from 2015-2016 reveal a loop of **Board of Directors** meetings at **250 Park Avenue**, New York. These meetings consolidated **Jason Epstein**, **Andrew Intrater**, **Robert Machinist**, and **Ehud Barak** (Former Israeli PM).</p>
-                <p><strong>Institutionalized Legitimacy:</strong> Extraction of emails confirms that the operation's legitimacy was reinforced by high-level asset management links, providing financial scaffolding for international transit nodes.</p>
-
-                <hr style="border:1px solid #222; margin: 40px 0;">
-
-                <h2>CHAPTER 1: THE SHIELDS OF THE HUB</h2>
-                <p>The 394 SDNY Unsealed Exhibits are not just a list of names; they are the debris of an engineered silence. Investigative synthesis of the **1260-1315 series** reveals that the lawyers, not the clients, were the primary nodes of control. </p>
-                <p><strong>The Legal Shield:</strong> Documents like 1267.0 and 1268.0 prove that **David Boies** and **Alan Dershowitz** were locked in a physical battle over which "Doe" identifiers would be sacrificed to the public record and which would remain shielded within the "Web of Silence."</p>
-                <p><strong>The Academic Umbrella:</strong> Synthesis of **Exhibit 1320.15** reveals how the network used world-renowned thinkers like **Stephen Hawking** to anchor the LSJ Hub. By hosting "Scientific Symposiums," the operation created a veneer of legitimacy that prevented local authorities from questioning the constant flow of logistical traffic.</p>
+        <h2 style="color:var(--red);">VERIFIED DOCUMENT TRANCHES [JMAIL LEAK]</h2>
+        <div class="evidence-grid">
+            <div class="evidence-card">
+                <h3>REPORTY SECURITY ADVISORY</h3>
+                <p>Scanned agreement identifying Michael Chertoff as an advisory node for Reporty Homeland Security Ltd (now Carbyne). The document was circulated within the inner-circle correspondence.</p>
+                <div class="evidence-meta">SOURCE: JMAIL/Gmail01/Inbox // DATE: 2016-03-20 // AUTHOR: CamScanner</div>
             </div>
-
-            <div id="map-container">
-                <div class="map-label">THE NEXUS: TOP 50 VERIFIED Hubs</div>
-                <div id="mynetwork" style="height: 100%;"></div>
+            <div class="evidence-card">
+                <h3>CIFC CORP BOARD MEETINGS</h3>
+                <p>Consistent Board of Directors meeting notices involving Ehud Barak, Jason Epstein, and Andrew Intrater at 250 Park Avenue, NY (2015-2016).</p>
+                <div class="evidence-meta">SOURCE: JMAIL/Gmail01/Inbox // PERSONNEL: EB, JE, AI</div>
+            </div>
+            <div class="evidence-card">
+                <h3>D-FENCE SECURITY MANUAL</h3>
+                <p>Technical reference guide for high-security perimeter and electronic fencing systems found within the Barak/Epstein email tranches.</p>
+                <div class="evidence-meta">SOURCE: JMAIL/Gmail01/Inbox // TYPE: TECHNICAL MANUAL</div>
+            </div>
+            <div class="evidence-card">
+                <h3>BARAK MANUSCRIPT FRAGMENTS</h3>
+                <p>Raw draft manuscripts by Ehud Barak were circulated within the same digital tranches as commercial and security board decks.</p>
+                <div class="evidence-meta">SOURCE: JMAIL/Gmail01/Inbox // STATUS: RAW DRAFT</div>
             </div>
         </div>
 
-        <h2 style="color:var(--red);">THE RECOVERED CHRONICLE [100% COMPLETE]</h2>
-        <div id="evidence-stream">
-            <div id="stream-content"></div>
+        <h2 style="color:var(--red);">THE NEXUS [VISUAL REFERENCE]</h2>
+        <div id="map-container">
+            <div class="map-label">THE VERIFIED WEB: CROSS-REFERENCES FROM ALL 1.3M SOURCES</div>
+            <div id="mynetwork" style="height: 100%;"></div>
         </div>
     </main>
 
@@ -90,7 +81,7 @@
 
     <script>
         let network = null;
-        async function initStoryMap() {
+        async function initStaticMap() {
             try {
                 const resEnt = await fetch('knowledge_graph_entities.json');
                 const resRel = await fetch('knowledge_graph_relationships.json');
@@ -125,22 +116,7 @@
                 });
             } catch (e) { console.error("Map failed..."); }
         }
-
-        async function updateSite() {
-            try {
-                const res = await fetch('stream.json?' + new Date().getTime());
-                const data = await res.json();
-                document.getElementById('stream-content').innerHTML = data.map(e => `
-                    <div class="pulse-entry">
-                        <div class="pulse-meta">REPORT: ${e.processed_count}/394 // FILE: ${e.file}</div>
-                        <p>${e.analysis}</p>
-                    </div>
-                `).join('');
-                initStoryMap();
-            } catch (e) { console.error("Syncing..."); }
-        }
-
-        updateSite();
+        initStaticMap();
     </script>
 </body>
 </html>
