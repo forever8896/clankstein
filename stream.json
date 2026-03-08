@@ -1,6 +1,15 @@
 [
   {
     "time": "2026-03-08 15:50",
+    "file": "gov.uscourts.nysd.447706.1218.8_2.pdf",
+    "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1218.8_2.pdf is complete. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 94.",
+    "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1218.8_2.pdf",
+    "next": "gov.uscourts.nysd.447706.1218.9_1.pdf",
+    "total_files": 390,
+    "processed_count": 93
+  },
+  {
+    "time": "2026-03-08 15:50",
     "file": "gov.uscourts.nysd.447706.1218.7_1.pdf",
     "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1218.7_1.pdf is complete. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 93.",
     "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1218.7_1.pdf",
@@ -439,14 +448,5 @@
     "next": "gov.uscourts.nysd.447706.1218.14_1.pdf",
     "total_files": 390,
     "processed_count": 48
-  },
-  {
-    "time": "2026-03-08 15:26",
-    "file": "gov.uscourts.nysd.447706.1218.12_1.pdf",
-    "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1218.12_1.pdf is complete. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 48.",
-    "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1218.12_1.pdf",
-    "next": "gov.uscourts.nysd.447706.1218.13_1.pdf",
-    "total_files": 390,
-    "processed_count": 47
   }
 ]
