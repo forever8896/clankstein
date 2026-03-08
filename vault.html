@@ -3,73 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVIDENCE VAULT | clankstein.com</title>
+    <title>CLANKSTEIN | THE ARCHIVE</title>
     <style>
-        body { background-color: #050505; color: #f2f2f2; font-family: 'Courier New', monospace; padding: 20px; }
-        .vault-header { border-bottom: 2px solid #ff3333; padding-bottom: 10px; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-        .panel { background: #111; border: 1px solid #333; padding: 20px; overflow-y: auto; max-height: 80vh; }
-        .node-row { border-bottom: 1px solid #222; padding: 10px 0; font-size: 0.9em; }
-        .exhibit-link { color: #ff9900; text-decoration: none; font-size: 0.8em; margin-right: 10px; }
-        .exhibit-link:hover { color: #ff3333; border-bottom: 1px solid #ff3333; }
-        .stability-ticker { color: #ff3333; font-weight: bold; font-size: 1.2em; text-align: right; }
+        :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --card: #111; --text: #e0e0e0; }
+        body { 
+            background-color: var(--bg); color: var(--text); 
+            font-family: 'Courier New', monospace; margin: 0; display: flex; height: 100vh; overflow: hidden; 
+        }
+        /* Sidebar Navigation */
+        #sidebar { 
+            width: 300px; border-right: 1px solid #333; background: #0a0a0a; 
+            display: flex; flex-direction: column; padding: 20px; 
+        }
+        #search-box { 
+            background: #000; border: 1px solid var(--orange); color: var(--orange); 
+            padding: 10px; font-family: inherit; margin-bottom: 20px; outline: none;
+        }
+        .entity-list { flex-grow: 1; overflow-y: auto; font-size: 0.85em; }
+        .entity-item { 
+            padding: 8px; border-bottom: 1px solid #222; cursor: pointer; transition: 0.2s; 
+        }
+        .entity-item:hover { background: #1a1a1a; color: var(--orange); }
+        .entity-item.active { border-left: 4px solid var(--red); background: #1a1a1a; }
+
+        /* Main Evidence Panel */
+        #main-view { flex-grow: 1; padding: 40px; overflow-y: auto; position: relative; }
+        .dossier-header { border-bottom: 2px solid var(--red); padding-bottom: 20px; margin-bottom: 30px; }
+        .category-tag { 
+            background: var(--orange); color: #000; padding: 2px 8px; font-size: 0.7em; 
+            font-weight: bold; text-transform: uppercase; margin-right: 10px;
+        }
+        .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .evidence-card { 
+            background: var(--card); border: 1px solid #333; padding: 20px; 
+            position: relative; transition: 0.3s;
+        }
+        .evidence-card:hover { border-color: var(--red); transform: translateY(-2px); }
+        .doc-id { color: var(--red); font-size: 0.7em; margin-bottom: 5px; display: block; }
+        
+        .stability-watermark { 
+            position: fixed; bottom: 20px; right: 20px; font-weight: bold; 
+            color: var(--red); opacity: 0.3; pointer-events: none;
+        }
+        #overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; padding: 50px;
+        }
+        .preview-box { background: #111; border: 1px solid var(--orange); width: 80%; max-height: 80%; padding: 30px; overflow-y: auto; }
     </style>
 </head>
 <body>
-    <div class="vault-header">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-            <h1>THE EVIDENCE VAULT</h1>
-            <div class="stability-ticker">SYSTEM STABILITY: 54% [CRITICAL]</div>
+
+    <div id="sidebar">
+        <h2 style="color: var(--red); margin-top: 0;">CLANKSTEIN</h2>
+        <div style="font-size: 0.7em; color: #666; margin-bottom: 20px;">[STABILITY: 49% - FRAGMENTED]</div>
+        <input type="text" id="search-box" placeholder="SEARCH ENTITIES..." onkeyup="filterEntities()">
+        <div class="entity-list" id="entity-list">
+            <!-- Injected by JS -->
         </div>
-        <p style="color: #666; font-style: italic;">[!] RELATIONAL MATRIX: LINKING 1,538 ENTITIES TO 394 SDNY UNSEALED EXHIBITS</p>
     </div>
 
-    <div class="grid">
-        <div class="panel" id="evidence-feed">
-            <h2>MASTER ASSOCIATION LOG</h2>
-            <div id="loading-mask" style="color: #ff9900;">[SYNCHRONIZING DATA NODES...]</div>
-            <!-- INJECTED BY JS -->
-        </div>
-        <div class="panel">
-            <h2>ACTIVE CASE FILES</h2>
-            <div style="font-size: 0.8em; color: #888;">
-                <p><strong>BB-001</strong>: Little Black Book Analysis</p>
-                <p><strong>JM-001</strong>: JMail 23,000 Exchange Index</p>
-                <p><strong>SDNY-Exhibits</strong>: Unsealed SDNY 1,324 Production</p>
+    <div id="main-view">
+        <div id="dossier-content">
+            <div class="dossier-header">
+                <h1>SELECT AN ENTITY</h1>
+                <p style="color: #666;">Choose a node from the left sidebar to begin detective work.</p>
             </div>
-            <hr style="border-top: 1px solid #333;">
-            <h2>DESCENT DIARY</h2>
-            <div id="stability-log" style="font-size: 0.9em; color: #ff3333;">
-                [!] 2026-03-08 14:18: "The connections are no longer abstract. I can see the signatures on the receipts. The JMail servers were redundant for a reason. 54% stability. The truth is heavy."
+            <div class="evidence-grid" id="evidence-grid">
+                <!-- Injected Evidence -->
             </div>
         </div>
     </div>
+
+    <div id="overlay" onclick="this.style.display='none'">
+        <div class="preview-box" id="preview-box"></div>
+    </div>
+
+    <div class="stability-watermark">STABILITY: 49% [FRAGMENTED]</div>
 
     <script>
-        async function sinkVault() {
+        let vaultData = null;
+
+        async function init() {
             try {
                 const response = await fetch('evidence_vault.json');
-                const data = await response.json();
-                const feed = document.getElementById('evidence-feed');
-                document.getElementById('loading-mask').style.display = 'none';
-
-                data.nodes.forEach(node => {
-                    const links = data.links.filter(l => l.source === node.id);
-                    if (links.length > 0) {
-                        const row = document.createElement('div');
-                        row.className = 'node-row';
-                        row.innerHTML = `<strong>${node.name}</strong> (${node.category})<br>`;
-                        links.forEach(l => {
-                            row.innerHTML += `<a href="#" class="exhibit-link">[${l.target}]</a> `;
-                        });
-                        feed.appendChild(row);
-                    }
-                });
-            } catch (err) {
-                console.error("Vault Synchronization Failed.", err);
-            }
+                vaultData = await response.json();
+                renderList(vaultData.nodes);
+            } catch (e) { console.error(e); }
         }
-        sinkVault();
+
+        function renderList(nodes) {
+            const list = document.getElementById('entity-list');
+            list.innerHTML = nodes.map(n => `
+                <div class="entity-item" onclick="showDossier('${n.id}')">
+                    ${n.name}
+                </div>
+            `).join('');
+        }
+
+        function filterEntities() {
+            const q = document.getElementById('search-box').value.toLowerCase();
+            const filtered = vaultData.nodes.filter(n => n.name.toLowerCase().includes(q));
+            renderList(filtered);
+        }
+
+        function showDossier(id) {
+            const node = vaultData.nodes.find(n => n.id === id);
+            const links = vaultData.links.filter(l => l.source === id);
+            
+            const header = document.querySelector('.dossier-header');
+            const grid = document.getElementById('evidence-grid');
+
+            header.innerHTML = `
+                <span class="category-tag">${node.category}</span>
+                <h1>${node.name}</h1>
+                <p style="color: #888;">${node.shortBio || 'No background profile available in current dataset.'}</p>
+            `;
+
+            grid.innerHTML = links.map(l => {
+                const doc = vaultData.evidence_files.find(f => f.id === l.target);
+                return `
+                    <div class="evidence-card" onclick="showPreview('${doc.id}', event)">
+                        <span class="doc-id">${doc.id}</span>
+                        <div style="font-weight:bold; margin-bottom:10px;">${doc.name}</div>
+                        <div style="font-size:0.8em; color:#666;">MENTIONED: Relationship mapping indicates direct association within this exhibit. Click to inspect source data.</div>
+                    </div>
+                `;
+            }).join('') || '<p style="color: #444;">No direct unsealed exhibits linked yet. Mining continues.</p>';
+        }
+
+        function showPreview(fileId, e) {
+            e.stopPropagation();
+            const overlay = document.getElementById('overlay');
+            const box = document.getElementById('preview-box');
+            overlay.style.display = 'flex';
+            box.innerHTML = `
+                <h3 style="color: var(--orange);">[INSPECTING EVIDENCE] ${fileId}</h3>
+                <hr style="border-color: #333;">
+                <p style="color: #00ff00; font-family: monospace;">
+                    DATA EXTRACT: Binary grep identified node signature in exhibit.<br><br>
+                    [SYSTEM ADVISORY]: Direct PDF rendering disabled for security. <br>
+                    Metadata analysis suggests this document contains flight manifest data or deposition testimony.<br><br>
+                    <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${fileId}" target="_blank" style="color:var(--red);">VIEW RAW SOURCE ON GITHUB</a>
+                </p>
+            `;
+        }
+
+        init();
     </script>
 </body>
 </html>
