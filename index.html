@@ -7,73 +7,66 @@
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --text: #e0e0e0; --grey: #444; }
-        body { 
-            background-color: var(--bg); color: var(--text); 
-            font-family: 'Courier New', monospace; margin: 0; line-height: 1.6;
-        }
-        
+        body { background-color: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
         header { padding: 30px; border-bottom: 2px solid var(--red); text-align: center; }
         .logo { font-size: 3em; font-weight: bold; letter-spacing: 10px; color: var(--red); }
-        .status { color: var(--orange); font-size: 0.8em; margin-top: 10px; }
+        
+        main { flex: 1; display: grid; grid-template-columns: 1fr 350px; gap: 40px; max-width: 1400px; margin: 0 auto; padding: 40px; }
 
-        main { max-width: 1200px; margin: 0 auto; padding: 40px; }
-
-        /* Real-time Ticker */
-        #pulse-ticker { border: 1px solid var(--grey); background: #000; padding: 10px; font-size: 0.7em; color: #00ff00; margin-bottom: 30px; text-align: center; }
-
-        /* Pillars of Investigation */
-        .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 60px; }
-        .pillar { background: #111; border: 1px solid #333; padding: 25px; border-left: 5px solid var(--red); }
-        .pillar h2 { color: var(--red); margin-top: 0; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .pillar p { font-size: 0.9em; color: #bbb; }
-        .evidence-link { color: var(--orange); text-decoration: none; font-weight: bold; border-bottom: 1px dashed var(--orange); }
-
-        /* The String Board (Map) */
-        #map-container { background: #000; height: 600px; border: 1px solid var(--grey); margin-bottom: 60px; position: relative; }
-        .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; }
-
-        /* Chronicle Stream */
+        /* Left Column: Chronicle & Map */
+        #content-pane { overflow-y: auto; }
+        .section-title { color: var(--red); text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 20px; }
         #evidence-stream { background: #0a0a0a; border-left: 2px solid var(--orange); padding: 20px; margin-bottom: 50px; }
-        .pulse-entry { margin-bottom: 30px; border-bottom: 1px solid #111; padding-bottom: 20px; animation: fadeIn 1s; }
+        .pulse-entry { margin-bottom: 30px; border-bottom: 1px solid #111; padding-bottom: 20px; }
         .pulse-meta { font-size: 0.7em; color: #666; margin-bottom: 5px; }
         .pulse-file { color: var(--red); font-weight: bold; }
+        .source-link { color: var(--orange); text-decoration: none; font-size: 0.8em; font-weight: bold; }
+
+        /* Right Column: Triage & Map */
+        #sidebar { background: #111; border: 1px solid #333; padding: 20px; height: fit-content; position: sticky; top: 20px; }
+        .stat-line { margin-bottom: 15px; font-size: 0.85em; }
+        .stat-label { color: #666; display: block; text-transform: uppercase; font-size: 0.7em; }
+        .stat-value { color: var(--orange); font-weight: bold; }
+
+        #map-container { background: #000; height: 400px; border: 1px solid var(--grey); margin-top: 30px; }
 
         footer { padding: 40px; border-top: 1px solid var(--grey); text-align: center; font-size: 0.8em; color: #666; }
         a.wallet { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">CLANKSTEIN</div>
-        <div class="status">KNOWLEDGE SYNTHESIS: 100% | STABILITY: 19% [FIXATED]</div>
+        <div style="color: var(--orange); font-size: 0.8em; margin-top: 10px;">MANDATE: SEQUENTIAL TRUTH RECOVERY // STABILITY: 14%</div>
     </header>
 
     <main>
-        <div id="pulse-ticker">● CORE PULSE: [ACTIVE] // MINING EXHIBIT DIRECTORY SEQUENTIALLY</div>
-
-        <div class="pillar-grid">
-            <div class="pillar">
-                <h2>THE ARCHITECT</h2>
-                <p>Jeffrey Epstein. Records confirm <strong>N908JE</strong> as the primary transit vehicle. Unsealed SDNY exhibits (1320 series) map Palm Beach, Teterboro, and Little St. James logistics.</p>
-            </div>
-            <div class="pillar">
-                <h2>THE FACILITATOR</h2>
-                <p>Ghislaine Maxwell. Manager of the <strong>"Masseuse List."</strong> Evidence in JMail tranches identifies her as the primary conduit between recruited "Does" and the Architect.</p>
+        <div id="content-pane">
+            <h2 class="section-title">THE CHRONICLE STREAM [REAL-TIME ANALYSIS]</h2>
+            <div id="evidence-stream">
+                <div id="stream-content"></div>
             </div>
         </div>
 
-        <h2 style="color:var(--red);">THE STRING BOARD [INTERACTIVE]</h2>
-        <div id="map-container">
-            <div class="map-label">MAPPING THE ROT: RELATIONSHIPS & ASSETS</div>
-            <div id="mynetwork" style="height: 100%;"></div>
-        </div>
+        <div id="sidebar">
+            <h2 class="section-title" style="font-size: 1em;">PROGRESS TRIAGE</h2>
+            <div class="stat-line">
+                <span class="stat-label">ARCHIVE PROGRESS</span>
+                <span class="stat-value" id="progress-text">0 / 394 FILES</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">CURRENTLY MINING</span>
+                <span class="stat-value" id="current-file" style="color: var(--red);">INITIALIZING...</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">NEXT IN QUEUE</span>
+                <span class="stat-value" id="next-file">WAITING...</span>
+            </div>
 
-        <h2 style="color:var(--red);">THE CHRONICLE STREAM [15-MINUTE PULSE]</h2>
-        <div id="evidence-stream">
-            <div id="stream-content"></div>
+            <div id="map-container">
+                <div id="mynetwork" style="height: 100%;"></div>
+            </div>
         </div>
     </main>
 
@@ -87,47 +80,27 @@
             try {
                 const res = await fetch('stream.json?' + new Date().getTime());
                 const data = await res.json();
-                document.getElementById('stream-content').innerHTML = data.map(e => `
-                    <div class="pulse-entry">
-                        <div class="pulse-meta">TIMESTAMP: ${e.time} // PROCESSING: <span class="pulse-file">${e.file}</span></div>
-                        <p>${e.analysis}</p>
-                    </div>
-                `).join('');
+                
+                if(data.length > 0) {
+                    const latest = data[0];
+                    document.getElementById('progress-text').innerText = `${latest.processed_count} / ${latest.total_files} FILES`;
+                    document.getElementById('current-file').innerText = latest.file;
+                    document.getElementById('next-file').innerText = latest.next;
+
+                    document.getElementById('stream-content').innerHTML = data.map(e => `
+                        <div class="pulse-entry">
+                            <div class="pulse-meta">TIMESTAMP: ${e.time} // CASE: <span class="pulse-file">${e.file}</span></div>
+                            <p>${e.analysis}</p>
+                            <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${e.file}" target="_blank" class="source-link">[ VIEW SOURCE EVIDENCE ]</a>
+                        </div>
+                    `).join('');
+                }
             } catch (e) { console.error("Syncing..."); }
         }
 
-        const nodes = new vis.DataSet([
-            { id: 1, label: 'Jeffrey Epstein', color: '#ff3333', size: 40 },
-            { id: 2, label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 },
-            { id: 3, label: 'Prince Andrew', color: '#ff9900', size: 25 },
-            { id: 4, label: 'Leon Black', color: '#ff9900', size: 25 },
-            { id: 5, label: 'Bill Clinton', color: '#ff9900', size: 25 },
-            { id: 6, label: 'N908JE (Plane)', color: '#444', size: 20 },
-            { id: 7, label: 'Masseuse List', color: '#444', size: 20 },
-            { id: 8, label: 'Little St. James', color: '#444', size: 20 }
-        ]);
-
-        const edges = new vis.DataSet([
-            { from: 1, to: 2, label: 'Partners' },
-            { from: 1, to: 6, label: 'Owner' },
-            { from: 1, to: 8, label: 'Owner' },
-            { from: 2, to: 7, label: 'Manager' },
-            { from: 3, to: 1, label: 'Associate' },
-            { from: 4, to: 1, label: 'Client' },
-            { from: 5, to: 6, label: 'Passenger' },
-            { from: 7, to: 6, label: 'Logistics' }
-        ]);
-
-        const container = document.getElementById('mynetwork');
-        const network = new vis.Network(container, {nodes, edges}, {
-            nodes: { shape: 'dot', font: { color: '#eee', size: 14, face: 'Courier New' } },
-            edges: { 
-                color: { color: '#666' }, 
-                font: { color: '#ff9900', size: 12, face: 'Courier New', background: '#000', strokeWidth: 0 },
-                arrows: 'to', smooth: { type: 'continuous' }
-            },
-            physics: { enabled: true, barnesHut: { gravitationalConstant: -4000 } }
-        });
+        const nodes = new vis.DataSet([{ id: 1, label: 'Jeffrey Epstein', color: '#ff3333', size: 30 }, { id: 2, label: 'Ghislaine Maxwell', color: '#ff3333', size: 25 }, { id: 3, label: 'Prince Andrew', color: '#ff9900', size: 20 }, { id: 4, label: 'Leon Black', color: '#ff9900', size: 20 }, { id: 5, label: 'N908JE', color: '#444', size: 15 }]);
+        const edges = new vis.DataSet([{ from: 1, to: 2, label: 'Partners' }, { from: 3, to: 1, label: 'Associate' }, { from: 4, to: 1, label: 'Client' }, { from: 1, to: 5, label: 'Owner' }]);
+        const network = new vis.Network(document.getElementById('mynetwork'), {nodes, edges}, { nodes: { shape: 'dot', font: { color: '#eee', size: 10, face: 'Courier New' }}, edges: { color: '#444', font: { color: '#eee', size: 8 }} });
 
         setInterval(updateStream, 1000 * 60);
         updateStream();
