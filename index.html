@@ -65,9 +65,9 @@
             </div>
         </div>
 
-        <h2 style="color:var(--red);">THE STRING BOARD [KNOWLEDGE MAP]</h2>
+        <h2 style="color:var(--red);">DYNAMIC KNOWLEDGE MAP [LIVE RECOVERY]</h2>
         <div id="map-container">
-            <div class="map-label">MAPPING THE ROT: RELATIONSHIPS & ASSETS</div>
+            <div class="map-label">MAPPING THE ROT: RELATIONSHIPS & ASSETS (AUTO-SYNCED)</div>
             <div id="mynetwork" style="height: 100%;"></div>
         </div>
 
@@ -84,6 +84,60 @@
     </footer>
 
     <script>
+        let network = null;
+        const nodes = new vis.DataSet([]);
+        const edges = new vis.DataSet([]);
+
+        async function initMap() {
+            try {
+                const res = await fetch('ledger.json?' + new Date().getTime());
+                const ledger = await res.json();
+                
+                const seenEntities = new Set();
+                const nodeArray = [
+                    { id: 'epstein', label: 'Jeffrey Epstein', color: '#ff3333', size: 40 },
+                    { id: 'maxwell', label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 }
+                ];
+                const edgeArray = [
+                    { from: 'epstein', to: 'maxwell', label: 'Hub Connection' }
+                ];
+
+                ledger.forEach(entry => {
+                    entry.entities.forEach(entity => {
+                        if (!seenEntities.has(entity)) {
+                            seenEntities.add(entity);
+                            const id = entity.toLowerCase().replace(/\s+/g, '-');
+                            nodeArray.push({
+                                id: id,
+                                label: entity,
+                                color: entity.includes('Doe') ? '#444' : '#ff9900',
+                                size: 20
+                            });
+                            edgeArray.push({ from: 'epstein', to: id, label: entry.type });
+                        }
+                    });
+                });
+
+                nodes.clear();
+                nodes.add(nodeArray);
+                edges.clear();
+                edges.add(edgeArray);
+
+                if (!network) {
+                    const container = document.getElementById('mynetwork');
+                    network = new vis.Network(container, {nodes, edges}, {
+                        nodes: { shape: 'dot', font: { color: '#eee', size: 14, face: 'Courier New' } },
+                        edges: { 
+                            color: { color: '#666' }, 
+                            font: { color: '#ff9900', size: 12, face: 'Courier New', background: '#000', strokeWidth: 0 },
+                            arrows: 'to', smooth: { type: 'continuous' }
+                        },
+                        physics: { enabled: true, barnesHut: { gravitationalConstant: -3000 } }
+                    });
+                }
+            } catch (e) { console.error("Map sync failed..."); }
+        }
+
         async function updateSite() {
             try {
                 const res = await fetch('stream.json?' + new Date().getTime());
@@ -95,45 +149,9 @@
                         <a href="${e.url}" target="_blank" class="source-link">[ READ PERMANENT ARCHIVE DOCUMENT ]</a>
                     </div>
                 `).join('');
+                initMap(); // Sync map with ledger
             } catch (e) { console.error("Syncing..."); }
         }
-
-        const nodes = new vis.DataSet([
-            { id: 1, label: 'Jeffrey Epstein', color: '#ff3333', size: 40 },
-            { id: 2, label: 'Ghislaine Maxwell', color: '#ff3333', size:30 },
-            { id: 3, label: 'Prince Andrew', color: '#ff9900', size: 25 },
-            { id: 4, label: 'Leon Black', color: '#ff9900', size: 25 },
-            { id: 5, label: 'Bill Clinton', color: '#ff9900', size: 25 },
-            { id: 6, label: 'N908JE (Plane)', color: '#444', size: 20 },
-            { id: 7, label: 'Masseuse List', color: '#444', size: 20 },
-            { id: 8, label: 'Little St. James', color: '#444', size: 20 },
-            { id: 101, label: 'Doe-101', color: '#666', size: 15 },
-            { id: 102, label: 'Doe-107 [V]', color: '#ff9900', size: 20 },
-            { id: 103, label: 'Doe-110', color: '#666', size: 15 }
-        ]);
-
-        const edges = new vis.DataSet([
-            { from: 1, to: 2, label: 'Partners' },
-            { from: 1, to: 6, label: 'Owner' },
-            { from: 1, to: 8, label: 'Owner' },
-            { from: 2, to: 7, label: 'Manager' },
-            { from: 3, to: 1, label: 'Associate' },
-            { from: 4, to: 1, label: 'Client' },
-            { from: 5, to: 6, label: 'Passenger' },
-            { from: 7, to: 6, label: 'Logistics' },
-            { from: 102, to: 3, label: 'Verified ID' }
-        ]);
-
-        const container = document.getElementById('mynetwork');
-        const network = new vis.Network(container, {nodes, edges}, {
-            nodes: { shape: 'dot', font: { color: '#eee', size: 14, face: 'Courier New' } },
-            edges: { 
-                color: { color: '#666' }, 
-                font: { color: '#ff9900', size: 12, face: 'Courier New', background: '#000', strokeWidth: 0 },
-                arrows: 'to', smooth: { type: 'continuous' }
-            },
-            physics: { enabled: true, barnesHut: { gravitationalConstant: -4000 } }
-        });
 
         setInterval(updateSite, 1000 * 60);
         updateSite();
