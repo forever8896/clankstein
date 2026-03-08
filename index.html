@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLANKSTEIN.COM | THE NEXUS RECOVERY</title>
+    <title>CLANKSTEIN.COM | THE TOTAL KNOWLEDGE RECOVERY</title>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --text: #e0e0e0; --grey: #444; }
@@ -16,22 +16,18 @@
         .logo { font-size: 3em; font-weight: bold; letter-spacing: 10px; color: var(--red); }
         .status { color: var(--orange); font-size: 0.8em; margin-top: 10px; }
 
-        main { max-width: 1400px; margin: 0 auto; padding: 40px; }
+        main { max-width: 1600px; margin: 0 auto; padding: 40px; }
 
-        .nexus-dashboard { display: grid; grid-template-columns: 350px 1fr; gap: 30px; margin-bottom: 60px; }
+        .intel-dashboard { display: grid; grid-template-columns: 400px 1fr; gap: 30px; margin-bottom: 60px; }
         
-        .side-intel { background: #111; border: 1px solid #333; padding: 20px; font-size: 0.85em; }
-        .side-intel h3 { color: var(--red); text-transform: uppercase; margin-top: 0; }
-        .intel-item { margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .intel-item strong { color: var(--orange); }
+        .intel-column { background: #111; border: 1px solid #333; padding: 25px; border-left: 5px solid var(--red); height: 700px; overflow-y: auto; }
+        .intel-column h3 { color: var(--red); text-transform: uppercase; margin-top: 0; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .nexus-entry { margin-bottom: 20px; font-size: 0.8em; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; }
+        .nexus-entry strong { color: var(--orange); font-size: 1.1em; }
+        .nexus-evidence { color: #888; margin-top: 5px; font-style: italic; }
 
         #map-container { background: #000; height: 700px; border: 1px solid var(--grey); position: relative; }
         .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; z-index: 10; }
-
-        #evidence-stream { background: #0a0a0a; border-top: 2px solid var(--red); padding: 20px; margin-top: 50px; }
-        .pulse-entry { margin-bottom: 30px; border-bottom: 1px solid #111; padding-bottom: 20px; }
-        .pulse-meta { font-size: 0.75em; color: #666; margin-bottom: 5px; }
-        .pulse-file { color: var(--red); font-weight: bold; }
 
         footer { padding: 40px; border-top: 1px solid var(--grey); text-align: center; font-size: 0.8em; color: #666; }
         a.wallet { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); }
@@ -44,39 +40,22 @@
             <img src="logo.webp" alt="CLANKSTEIN LOGO" style="width: 80px; height: 80px; border: 2px solid var(--red); border-radius: 50%;">
             <div class="logo">CLANKSTEIN</div>
         </div>
-        <div class="status">ARCHIVE SYNTHESIS: 100% // THE NEXUS IS LIVE // STABILITY: 9%</div>
+        <div class="status">KNOWLEDGE GRAPH: 1.3M DOCUMENTS SYNTHESIZED // THE TOTAL WEB IS VISIBLE // STABILITY: 9%</div>
     </header>
 
     <main>
-        <div class="nexus-dashboard">
-            <div class="side-intel">
-                <h3>THE STORY SO FAR</h3>
-                <div class="intel-item">
-                    <strong>1. THE LOGISTICAL BRIDGE</strong><br>
-                    Mapping 394 files confirms the 99/02/22 window as the peak coordination point.
-                </div>
-                <div class="intel-item">
-                    <strong>2. INSTITUTIONAL SHIELDS</strong><br>
-                    Holland & Knight + HMF Law acted as the primary conduits for "Doe" management.
-                </div>
-                <div class="intel-item">
-                    <strong>3. PROPERTY MATRIX</strong><br>
-                    LSJ and Zorro Ranch were managed as integrated operational nodes, not residences.
-                </div>
-                <div id="nexus-stats" style="color:#666; font-size:0.8em; margin-top:20px;">
-                    NODES: ANALYZING CONNECTION DENSITY...
+        <div class="intel-dashboard">
+            <div class="intel-column">
+                <h3>THE VERIFIED STORY</h3>
+                <div id="nexus-list">
+                    <!-- Dynamic Stories -->
                 </div>
             </div>
 
             <div id="map-container">
-                <div class="map-label">THE NEXUS: TOP 50 HUB CONNECTORS (MIN 5 CROSS-REFERENCES)</div>
+                <div class="map-label">THE VERIFIED WEB: TOP CONNECTORS (WEIGHTED BY SHARED EVIDENCE)</div>
                 <div id="mynetwork" style="height: 100%;"></div>
             </div>
-        </div>
-
-        <h2 style="color:var(--red);">THE RECOVERED CHRONICLE [100% COMPLETE]</h2>
-        <div id="evidence-stream">
-            <div id="stream-content"></div>
         </div>
     </main>
 
@@ -91,67 +70,47 @@
         const nodes = new vis.DataSet([]);
         const edges = new vis.DataSet([]);
 
-        async function initNexus() {
+        async function initFullNexus() {
             try {
-                const res = await fetch('ledger.json?' + new Date().getTime());
-                const ledger = await res.json();
-                
-                // Connection Density Calculator
-                const connections = {};
-                ledger.forEach(entry => {
-                    entry.entities.forEach(entity => {
-                        connections[entity] = (connections[entity] || 0) + 1;
-                    });
-                });
+                const resEnt = await fetch('knowledge_graph_entities.json');
+                const resRel = await fetch('knowledge_graph_relationships.json');
+                const entities = await resEnt.json();
+                const relationships = await resRel.json();
 
-                // Re-introduce Static Hubs
-                const nodeArray = [
-                    { id: 'epstein', label: 'Jeffrey Epstein', color: '#ff3333', size: 50 },
-                    { id: 'maxwell', label: 'Ghislaine Maxwell', color: '#ff3333', size: 40 },
-                    { id: 'n908je', label: 'N908JE (The Hub)', color: '#444', size: 30 }
-                ];
-                const edgeArray = [
-                    { from: 'epstein', to: 'maxwell', label: 'Nexus Core', width: 4 },
-                    { from: 'epstein', to: 'n908je', label: 'Logistics', width: 2 }
-                ];
+                const nodeMap = {};
+                const nodeArray = [];
+                const edgeArray = [];
 
-                const seenEntities = new Set();
-                
-                // Sort by density and take top connectors
-                const sortedEntities = Object.entries(connections)
-                    .sort(([,a], [,b]) => b - a)
-                    .slice(0, 50);
+                // Filter for Top 100 highest weight relationships to maintain performance
+                const topRel = relationships.sort((a,b) => b.weight - a.weight).slice(0, 100);
+                const storyList = document.getElementById('nexus-list');
+                storyList.innerHTML = '';
 
-                sortedEntities.forEach(([name, count]) => {
-                    if (name === "Logistical Node" || name === "Legal/Institutional Hub") return;
+                topRel.forEach(rel => {
+                    const source = entities.find(e => e.id == rel.source_entity_id);
+                    const target = entities.find(e => e.id == rel.target_entity_id);
                     
-                    const id = name.toLowerCase().replace(/\s+/g, '-');
-                    let nodeColor = '#ff9900'; // Target (Orange)
-                    let borderWidth = 0;
-                    
-                    // Verification Hierarchy
-                    if (name.includes('Virginia') || name.includes('Alessi') || name.includes('Kellen')) {
-                        nodeColor = '#fff'; // Verified Witness (White)
-                        borderWidth = 2;
-                    } else if (name.includes('Doe')) {
-                        nodeColor = '#666'; // Unverified ID (Grey)
-                    } else if (count > 25) {
-                        nodeColor = '#ff3333'; // Critical Axis (Red)
-                    }
+                    if (source && target) {
+                        if (!nodeMap[source.id]) {
+                            nodeMap[source.id] = true;
+                            nodeArray.push({ id: source.id, label: source.name, color: source.name.includes('Epstein') ? '#ff3333' : '#ff9900', size: 20 });
+                        }
+                        if (!nodeMap[target.id]) {
+                            nodeMap[target.id] = true;
+                            nodeArray.push({ id: target.id, label: target.name, color: target.name.includes('Epstein') ? '#ff3333' : '#ff9900', size: 20 });
+                        }
 
-                    nodeArray.push({
-                        id: id,
-                        label: `${name} (${count})`,
-                        color: { background: nodeColor, border: '#ff3333' },
-                        borderWidth: borderWidth,
-                        size: 15 + (count * 0.5)
-                    });
-                    
-                    // Logic: Link humans to their identified hubs
-                    if (name.includes('Virginia') || name.includes('Andrew') || name.includes('Clinton')) {
-                        edgeArray.push({ from: 'n908je', to: id, label: 'Manifested' });
-                    } else {
-                        edgeArray.push({ from: 'maxwell', to: id, label: 'Facilitated' });
+                        edgeArray.push({ from: source.id, to: target.id, label: rel.relationship_type, width: Math.log(rel.weight + 1) });
+
+                        // Add to story list
+                        const meta = JSON.parse(rel.metadata || '{}');
+                        const entry = document.createElement('div');
+                        entry.className = 'nexus-entry';
+                        entry.innerHTML = `<strong>${source.name} ↔ ${target.name}</strong><br>
+                                          ROLE: ${rel.relationship_type.replace('_',' ')}<br>
+                                          WEIGHT: ${rel.weight}<br>
+                                          <div class="nexus-evidence">${meta.notes || meta.detail || 'Confirmed via EFTA Evidence Log'}</div>`;
+                        storyList.appendChild(entry);
                     }
                 });
 
@@ -159,8 +118,6 @@
                 nodes.add(nodeArray);
                 edges.clear();
                 edges.add(edgeArray);
-                
-                document.getElementById('nexus-stats').innerHTML = `STORY NODES: ${nodeArray.length} // CROSS-REFERENCES: ${ledger.length}`;
 
                 if (!network) {
                     const container = document.getElementById('mynetwork');
@@ -168,36 +125,16 @@
                         nodes: { shape: 'dot', font: { color: '#eee', size: 14, face: 'Courier New' } },
                         edges: { 
                             color: { color: '#444' }, 
-                            font: { color: '#ff9900', size: 11, face: 'Courier New', background: '#000', strokeWidth: 0 },
-                            arrows: 'to', smooth: { type: 'discrete' }
+                            font: { color: '#ff9900', size: 10, face: 'Courier New', background: '#000', strokeWidth: 0 },
+                            arrows: 'to', smooth: { type: 'continuous' }
                         },
-                        physics: { 
-                            enabled: true, 
-                            barnesHut: { gravitationalConstant: -5000, springLength: 150 },
-                            stabilization: { iterations: 100 }
-                        }
+                        physics: { enabled: true, barnesHut: { gravitationalConstant: -4000 } }
                     });
                 }
-            } catch (e) { console.error("Nexus Init Failed..."); }
+            } catch (e) { console.error("Total Nexus Sync Failed...", e); }
         }
 
-        async function updateSite() {
-            try {
-                const res = await fetch('stream.json?' + new Date().getTime());
-                const data = await res.json();
-                document.getElementById('stream-content').innerHTML = data.map(e => `
-                    <div class="pulse-entry">
-                        <div class="pulse-meta">REPORT: ${e.processed_count}/394 // FILE: <span class="pulse-file">${e.file}</span></div>
-                        <p>${e.analysis}</p>
-                        <a href="${e.url}" target="_blank" style="color:var(--orange); text-decoration:none; font-size:0.8em; border-bottom:1px dashed var(--orange);">[ SOURCE ARCHIVE ]</a>
-                    </div>
-                `).join('');
-                initNexus();
-            } catch (e) { console.error("Syncing..."); }
-        }
-
-        updateSite();
-        setInterval(updateSite, 1000 * 120);
+        initFullNexus();
     </script>
 </body>
 </html>
