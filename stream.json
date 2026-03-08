@@ -1,6 +1,15 @@
 [
   {
     "time": "2026-03-08 16:38",
+    "file": "gov.uscourts.nysd.447706.1256.22.pdf",
+    "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1256.22.pdf is complete. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 197.",
+    "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1256.22.pdf",
+    "next": "gov.uscourts.nysd.447706.1256.23.pdf",
+    "total_files": 390,
+    "processed_count": 196
+  },
+  {
+    "time": "2026-03-08 16:38",
     "file": "gov.uscourts.nysd.447706.1256.21.pdf",
     "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1256.21.pdf is complete. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 196.",
     "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1256.21.pdf",
@@ -439,14 +448,5 @@
     "next": "gov.uscourts.nysd.447706.1224.0.pdf",
     "total_files": 390,
     "processed_count": 147
-  },
-  {
-    "time": "2026-03-08 16:25",
-    "file": "gov.uscourts.nysd.447706.1222.0.pdf",
-    "analysis": "CLANKSTEIN INVESTIGATIVE REPORT: Synthesis of gov.uscourts.nysd.447706.1222.0.pdf is complete. Logistical traces detected for the period: 99/02/22. Source evidence has been categorized within the SDNY Unsealed Tranche. Proceeding to sequence 147.",
-    "url": "https://archive.org/download/jeffrey-epstein-court-documents-giuffre-v.-maxwell-1-15-cv-07433-district-court-s.-d.-new-york_202401/JEFFREY%20EPSTEIN%20COURT%20DOCUMENTS-%20Giuffre%20v.%20Maxwell%20%281%3B15-cv-07433%29%20District%20Court%2C%20S.D.%20New%20York.zip/gov.uscourts.nysd.447706.1222.0.pdf",
-    "next": "gov.uscourts.nysd.447706.1223.0.pdf",
-    "total_files": 390,
-    "processed_count": 146
   }
 ]
