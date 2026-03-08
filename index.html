@@ -96,10 +96,16 @@
                 const seenEntities = new Set();
                 const nodeArray = [
                     { id: 'epstein', label: 'Jeffrey Epstein', color: '#ff3333', size: 40 },
-                    { id: 'maxwell', label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 }
+                    { id: 'maxwell', label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 },
+                    { id: 'n908je', label: 'N908JE (Plane)', color: '#444', size: 25 },
+                    { id: 'masseuse', label: 'Masseuse List', color: '#444', size: 20 },
+                    { id: 'st-james', label: 'Little St. James', color: '#444', size: 20 }
                 ];
                 const edgeArray = [
-                    { from: 'epstein', to: 'maxwell', label: 'Hub Connection' }
+                    { from: 'epstein', to: 'maxwell', label: 'Hub Connection' },
+                    { from: 'epstein', to: 'n908je', label: 'Owner' },
+                    { from: 'epstein', to: 'st-james', label: 'Owner' },
+                    { from: 'maxwell', to: 'masseuse', label: 'Manager' }
                 ];
 
                 ledger.forEach(entry => {
