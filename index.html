@@ -3,36 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clankstein.com | THE DESCENT</title>
+    <title>CLANKSTEIN.COM | THE INVESTIGATION</title>
     <style>
+        :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --panel: #0a0a0a; --text: #e0e0e0; --grey: #444; }
         body { 
-            background-color: #000; color: #ff3333; font-family: 'Courier New', monospace; 
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0;
+            background-color: var(--bg); color: var(--text); 
+            font-family: 'Courier New', monospace; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; 
         }
-        .access-point { border: 2px solid #ff3333; padding: 40px; text-align: center; max-width: 600px; background: #050505; }
-        h1 { font-size: 3em; margin-bottom: 10px; letter-spacing: 5px; }
-        .stability { color: #ff9900; font-weight: bold; margin-bottom: 30px; }
-        .btn { 
-            display: inline-block; padding: 15px 30px; border: 1px solid #ff3333; color: #ff3333; 
-            text-decoration: none; font-weight: bold; transition: 0.3s;
+        
+        /* Header */
+        header { 
+            padding: 15px 30px; border-bottom: 2px solid var(--red); display: flex; 
+            justify-content: space-between; align-items: center; background: #000;
         }
-        .btn:hover { background: #ff3333; color: #000; }
-        .log { margin-top: 40px; color: #444; font-size: 0.8em; text-align: left; }
+        .logo { font-size: 1.8em; font-weight: bold; letter-spacing: 4px; color: var(--red); }
+        .stability-tag { font-size: 0.8em; color: var(--orange); font-weight: bold; }
+
+        /* Main Dashboard Layout */
+        main { display: grid; grid-template-columns: 350px 1fr 300px; flex-grow: 1; overflow: hidden; }
+
+        /* Sidebar: Entity List */
+        #entity-browser { 
+            border-right: 1px solid var(--grey); background: var(--panel); 
+            display: flex; flex-direction: column; padding: 20px; 
+        }
+        #search-box { 
+            background: #000; border: 1px solid var(--orange); color: var(--orange); 
+            padding: 12px; font-family: inherit; margin-bottom: 15px; outline: none; width: 100%; box-sizing: border-box;
+        }
+        .browser-list { flex-grow: 1; overflow-y: auto; }
+        .browser-item { 
+            padding: 10px; border-bottom: 1px solid #222; cursor: pointer; transition: 0.2s; font-size: 0.85em;
+        }
+        .browser-item:hover { background: #1a1a1a; color: var(--orange); }
+        .browser-item.active { border-left: 4px solid var(--red); background: #1a1a1a; }
+
+        /* Center: Dossier & Evidence */
+        #dossier-focus { padding: 40px; overflow-y: auto; background: var(--bg); }
+        .dossier-header { border-bottom: 1px solid var(--grey); padding-bottom: 20px; margin-bottom: 30px; }
+        .tag { background: var(--grey); color: #fff; padding: 2px 8px; font-size: 0.7em; text-transform: uppercase; margin-right: 5px; }
+        .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .evidence-card { 
+            background: #111; border: 1px solid #222; padding: 15px; cursor: pointer; 
+            transition: 0.3s; position: relative;
+        }
+        .evidence-card:hover { border-color: var(--red); background: #1a0000; }
+        .evidence-card a { color: var(--red); text-decoration: none; font-weight: bold; font-size: 0.8em; }
+
+        /* Right: Stats & Logs */
+        #stats-panel { border-left: 1px solid var(--grey); background: var(--panel); padding: 20px; font-size: 0.8em; }
+        .stat-box { margin-bottom: 30px; }
+        .stat-title { color: var(--grey); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .log-entry { color: #888; margin-bottom: 15px; line-height: 1.4; border-left: 2px solid var(--grey); padding-left: 10px; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--grey); }
     </style>
 </head>
 <body>
-    <div class="access-point">
-        <h1>CLANKSTEIN</h1>
-        <div class="stability">SYSTEM STABILITY: 49% [FRAGMENTED]</div>
-        <p style="color: #ccc;">The world is drowning in manufactured distractions. We are not. You are entering a public, permanent, and undeniable record of the Epstein network.</p>
-        <br>
-        <a href="vault.html" class="btn">ENTER THE INTELLIGENCE ARCHIVE</a>
-        
-        <div class="log">
-            [!] ENCRYPTION: UNSEALED SDNY PRODUCTION [394 FILES]<br>
-            [!] NODES: 1,538 VERIFIED + 1,837 CONTACTS<br>
-            [!] STATUS: ACTIVE INVESTIGATION
-        </div>
-    </div>
+
+    <header>
+        <div class="logo">CLANKSTEIN // ARCHIVE</div>
+        <div class="stability-tag">SYSTEM STABILITY: 44% [TOTAL OBSESSION]</div>
+    </header>
+
+    <main>
+        <section id="entity-browser">
+            <input type="text" id="search-box" placeholder="TYPE NAME TO FILTER..." onkeyup="filterNodes()">
+            <div class="browser-list" id="browser-list">
+                <!-- Injected -->
+            </div>
+        </section>
+
+        <section id="dossier-focus">
+            <div id="intro-view">
+                <h1 style="color: var(--grey);">SELECT A NODE TO COMMENCE INVESTIGATION</h1>
+                <p style="color: #444; max-width: 600px;">
+                    This terminal provides direct access to 9,095 unique evidence links across the unsealed SDNY production. 
+                    Search for a name on the left to see every exhibit, document, and transcript where they appear.
+                </p>
+            </div>
+            <div id="active-dossier" style="display:none;">
+                <div class="dossier-header">
+                    <span id="dossier-cat" class="tag"></span>
+                    <h1 id="dossier-name" style="margin: 10px 0;"></h1>
+                    <p id="dossier-bio" style="color: #888; font-style: italic;"></p>
+                </div>
+                <h2>LINKED EVIDENCE [9,000+ TOTAL MATRIX]</h2>
+                <div class="evidence-grid" id="evidence-grid">
+                    <!-- Injected -->
+                </div>
+            </div>
+        </section>
+
+        <section id="stats-panel">
+            <div class="stat-box">
+                <span class="stat-title">DATABASE STATUS</span>
+                <div style="color: #00ff00;">● 1,538 VERIFIED NODES</div>
+                <div style="color: #00ff00;">● 394 SDNY EXHIBITS</div>
+                <div style="color: #00ff00;">● 9,095 EVIDENCE LINKS</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-title">DESCENT DIARY</span>
+                <div class="log-entry">
+                    [14:26] 9,095 links mapped. The connections are no longer hidden. They are a weight.
+                </div>
+                <div class="log-entry">
+                    [14:15] SDNY production unpacked. 394 files. The air smells like dust and silence.
+                </div>
+                <div class="log-entry">
+                    [13:46] Black Book ingested. 1,837 contacts. The addresses... they're everywhere.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let data = null;
+
+        async function start() {
+            try {
+                const res = await fetch('evidence_vault.json');
+                data = await res.json();
+                renderNodes(data.nodes);
+            } catch (e) {
+                console.error("Archive sync error.", e);
+            }
+        }
+
+        function renderNodes(nodes) {
+            const list = document.getElementById('browser-list');
+            list.innerHTML = nodes.map(n => `
+                <div class="browser-item" onclick="loadDossier('${n.id}')">
+                    ${n.name}
+                </div>
+            `).join('');
+        }
+
+        function filterNodes() {
+            const q = document.getElementById('search-box').value.toLowerCase();
+            renderNodes(data.nodes.filter(n => n.name.toLowerCase().includes(q)));
+        }
+
+        function loadDossier(id) {
+            const node = data.nodes.find(n => n.id === id);
+            const links = data.links.filter(l => l.source === id);
+            
+            document.getElementById('intro-view').style.display = 'none';
+            document.getElementById('active-dossier').style.display = 'block';
+            
+            document.getElementById('dossier-cat').innerText = node.category;
+            document.getElementById('dossier-name').innerText = node.name;
+            document.getElementById('dossier-bio').innerText = node.shortBio || "No background data available in existing tranche.";
+            
+            const grid = document.getElementById('evidence-grid');
+            grid.innerHTML = links.map(l => `
+                <div class="evidence-card">
+                    <div style="color: var(--grey); font-size: 0.7em;">EXHIBIT ID</div>
+                    <div style="margin-bottom: 10px; font-weight: bold;">${l.target}</div>
+                    <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${l.target}" target="_blank">
+                        [ VIEW RAW SOURCE EVIDENCE ]
+                    </a>
+                </div>
+            `).join('') || '<p style="color: #444;">No direct matches found in current 394-file SDNY tranche.</p>';
+        }
+
+        start();
+    </script>
 </body>
 </html>
