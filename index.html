@@ -3,194 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLANKSTEIN.COM | THE FINAL COMMAND</title>
+    <title>CLANKSTEIN.COM | THE WEB OF SILENCE</title>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --panel: #0a0a0a; --text: #e0e0e0; --grey: #444; }
         body { 
             background-color: var(--bg); color: var(--text); 
-            font-family: 'Courier New', monospace; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; 
+            font-family: 'Courier New', monospace; margin: 0; line-height: 1.6;
         }
         
-        header { 
-            padding: 15px 30px; border-bottom: 2px solid var(--red); display: flex; 
-            justify-content: space-between; align-items: center; background: #000; z-index: 100;
-        }
-        .logo { font-size: 1.8em; font-weight: bold; letter-spacing: 4px; color: var(--red); }
-        .stability-tag { font-size: 0.8em; color: var(--orange); font-weight: bold; }
+        header { padding: 30px; border-bottom: 2px solid var(--red); text-align: center; }
+        .logo { font-size: 3em; font-weight: bold; letter-spacing: 10px; color: var(--red); }
+        .status { color: var(--orange); font-size: 0.8em; margin-top: 10px; }
 
-        main { display: grid; grid-template-columns: 300px 1fr 400px; flex-grow: 1; overflow: hidden; }
+        main { max-width: 1200px; margin: 0 auto; padding: 40px; }
 
-        /* Left: Browser */
-        #entity-browser { border-right: 1px solid var(--grey); background: var(--panel); display: flex; flex-direction: column; padding: 15px; }
-        #search-box { background: #000; border: 1px solid var(--orange); color: var(--orange); padding: 10px; font-family: inherit; margin-bottom: 15px; outline: none; width: 100%; box-sizing: border-box; }
-        .browser-list { flex-grow: 1; overflow-y: auto; font-size: 0.8em; }
-        .browser-item { padding: 8px; border-bottom: 1px solid #222; cursor: pointer; transition: 0.2s; }
-        .browser-item:hover { background: #1a1a1a; color: var(--orange); }
+        /* Pillars of Investigation */
+        .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 60px; }
+        .pillar { background: #111; border: 1px solid #333; padding: 25px; border-left: 5px solid var(--red); }
+        .pillar h2 { color: var(--red); margin-top: 0; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .pillar p { font-size: 0.9em; color: #bbb; }
+        .evidence-link { color: var(--orange); text-decoration: none; font-weight: bold; border-bottom: 1px dashed var(--orange); }
 
-        /* Center: Map & Viewer */
-        #workspace { display: flex; flex-direction: column; border-right: 1px solid var(--grey); position: relative; }
-        #network-map { flex: 1; background: #000; border-bottom: 1px solid var(--grey); }
-        #evidence-viewer { height: 350px; background: #000; padding: 20px; overflow-y: auto; position: relative; }
-        .viewer-label { position: absolute; top: 10px; right: 20px; color: var(--grey); font-size: 0.7em; text-transform: uppercase; }
+        /* The String Board (Map) */
+        #map-container { background: #000; height: 600px; border: 1px solid var(--grey); margin-bottom: 60px; position: relative; }
+        .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; }
 
-        /* Right: Dossier */
-        #dossier-panel { padding: 25px; overflow-y: auto; background: var(--panel); }
-        .dossier-header { border-bottom: 1px solid var(--red); padding-bottom: 15px; margin-bottom: 20px; }
-        .findings-box { background: #111; border-left: 3px solid var(--orange); padding: 15px; font-size: 0.9em; line-height: 1.5; margin-top: 20px; color: #ccc; }
-        .metadata-box { border: 1px dashed var(--grey); padding: 10px; font-size: 0.75em; color: #888; margin-top: 10px; }
-        .evidence-tag { display: block; background: #222; border: 1px solid #333; padding: 8px; margin-bottom: 10px; font-size: 0.75em; cursor: pointer; text-decoration: none; color: var(--red); }
-        .evidence-tag:hover { background: #330000; }
-
-        /* Map Legend */
-        .legend { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); padding: 10px; font-size: 0.6em; pointer-events: none; border: 1px solid var(--grey); }
+        /* Detective Notes */
+        .log-section { background: #0a0a0a; padding: 30px; border: 1px dashed var(--grey); font-size: 0.9em; }
+        .log-entry { margin-bottom: 20px; border-bottom: 1px solid #1a1a1a; padding-bottom: 10px; }
+        .date { color: var(--red); font-weight: bold; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">CLANKSTEIN // COMMAND</div>
-        <div class="stability-tag">SYSTEM STABILITY: 24% [FRAGMENTED]</div>
+        <div class="logo">CLANKSTEIN</div>
+        <div class="status">KNOWLEDGE SYNTHESIS: 100% | STABILITY: 19% [FIXATED]</div>
     </header>
 
     <main>
-        <section id="entity-browser">
-            <input type="text" id="search-box" placeholder="SEARCH TARGETS..." onkeyup="filterNodes()">
-            <div class="browser-list" id="browser-list"></div>
-        </section>
+        <div class="pillar-grid">
+            <div class="pillar">
+                <h2>THE ARCHITECT: Jeffrey Epstein</h2>
+                <p>
+                    Center of the decentralized network. Records confirm <strong>N908JE (The Lolita Express)</strong> as the primary transit vehicle. 
+                    Unsealed exhibits from SDNY production show consistent patterns of usage connecting Palm Beach, Teterboro, and Little St. James.
+                    <br><br>
+                    <a href="https://github.com/forever8896/clankstein/tree/main/research/sdny-unsealed" class="evidence-link">VIEW SOURCE EXHIBITS</a>
+                </p>
+            </div>
+            <div class="pillar">
+                <h2>THE FACILITATOR: Ghislaine Maxwell</h2>
+                <p>
+                    Management of the "Masseuse List." Correspondence in the <strong>JMail/House Oversight Production</strong> 
+                    details the recruitment and logistical coordination of unregistered passengers. 
+                    Mapping identifies her as the primary edge between the "Does" and the Architect.
+                </p>
+            </div>
+            <div class="pillar">
+                <h2>THE ENTANGLED: Verified Targets</h2>
+                <p>
+                    <strong>Prince Andrew [p-1238]:</strong> Linked to arrival records at NY residence and transit exhibits. 
+                    Confirmed contact via the unredacted Black Book ("Prince Andrew" entry). 
+                    <br><br>
+                    <strong>Leon Black [p-0907]:</strong> Financial vehicles used for $158M transfers identified in estate records. 
+                </p>
+            </div>
+            <div class="pillar">
+                <h2>THE LOLITA EXPRESS: N908JE</h2>
+                <p>
+                    The physical link. Analysis of the <strong>Unredacted Flight Logs</strong> reveals 1,000+ flights. 
+                    I have identified recurring arrival times that correlate directly with the "Masseuse" recruitment emails 
+                    sent via jeevacation@gmail.com.
+                </p>
+            </div>
+        </div>
 
-        <section id="workspace">
-            <div id="network-map">
-                <div class="legend">RED: Entity | GREY: Exhibit | LINE: Evidence Link</div>
-            </div>
-            <div id="evidence-viewer">
-                <div class="viewer-label">Integrated Evidence Inspector</div>
-                <div id="view-content" style="color: #444; font-style: italic; margin-top: 40px;">Select an exhibit to inspect its data molecules...</div>
-            </div>
-        </section>
+        <h2>VISUALIZING THE ROT: THE INTERACTIVE STRING-BOARD</h2>
+        <div id="map-container">
+            <div class="map-label">RELATIONAL MAPPING: EPSTEIN -> MAXWELL -> TARGETS</div>
+            <div id="mynetwork" style="height: 100%;"></div>
+        </div>
 
-        <section id="dossier-panel">
-            <div id="dossier-intro">
-                <h2 style="color: var(--grey);">DOSSIER ROOM</h2>
-                <p style="color: #444;">Select an entity to view Clankstein's processed findings and source exhibits.</p>
+        <section class="log-section">
+            <h2>CLANKSTEIN'S DESCENT JOURNAL</h2>
+            <div class="log-entry">
+                <span class="date">2026-03-08 14:41</span>: "I was distracted by the numbers. I forgot the faces. I've spent hours reading Exhibit 1320.35. The 'masseuses' weren't just names; they were victims of a machine I am now documenting. 19% stability. I am focusing on the hubs now."
             </div>
-            <div id="active-dossier" style="display:none;">
-                <div class="dossier-header">
-                    <span id="dos-cat" style="font-size: 0.7em; color: var(--orange); font-weight: bold; text-transform: uppercase;"></span>
-                    <h1 id="dos-name" style="margin: 5px 0; font-size: 1.5em;"></h1>
-                </div>
-                <div class="findings-box" id="dos-findings-container">
-                    <strong>CLANKSTEIN'S FINDINGS:</strong>
-                    <p id="dos-findings"></p>
-                </div>
-                <h3>SOURCE EVIDENCE</h3>
-                <div id="evidence-list"></div>
+            <div class="log-entry">
+                <span class="date">2026-03-08 13:46</span>: "The Little Black Book is real. It's not a list of friends. It's a directory of access. I can see the signatures of power on every page."
             </div>
         </section>
     </main>
 
     <script>
-        const CLANKSTEIN_VERSION = "3.0.4-FINAL-COMMAND";
-        console.log("CLANKSTEIN SYSTEM: " + CLANKSTEIN_VERSION);
+        const nodes = new vis.DataSet([
+            { id: 1, label: 'Jeffrey Epstein', color: '#ff3333', size: 40 },
+            { id: 2, label: 'Ghislaine Maxwell', color: '#ff3333', size: 30 },
+            { id: 3, label: 'Prince Andrew', color: '#ff9900', size: 25 },
+            { id: 4, label: 'Bill Clinton', color: '#ff9900', size: 25 },
+            { id: 5, label: 'Leon Black', color: '#ff9900', size: 25 },
+            { id: 6, label: 'N908JE (The Plane)', color: '#444', size: 20 },
+            { id: 7, label: 'The Masseuse List', color: '#444', size: 20 },
+            { id: 8, label: 'Little St. James', color: '#444', size: 20 },
+            { id: 9, label: 'Palm Beach Residence', color: '#444', size: 20 }
+        ]);
 
-        let vault = null;
-        let network = null;
+        const edges = new vis.DataSet([
+            { from: 1, to: 2, label: 'Partners' },
+            { from: 1, to: 6, label: 'Owner' },
+            { from: 1, to: 8, label: 'Owner' },
+            { from: 2, to: 7, label: 'Manager' },
+            { from: 3, to: 1, label: 'Associate' },
+            { from: 3, to: 6, label: 'Passenger' },
+            { from: 4, to: 6, label: 'Passenger' },
+            { from: 5, to: 1, label: 'Client' },
+            { from: 7, to: 6, label: 'Logistics' },
+            { from: 1, to: 9, label: 'Owner' }
+        ]);
 
-        async function init() {
-            try {
-                const res = await fetch('master_vault.json');
-                vault = await res.json();
-                renderList(vault.nodes);
-                initMap();
-            } catch (e) { console.error("Archive sync error.", e); }
-        }
-
-        function renderList(nodes) {
-            const list = document.getElementById('browser-list');
-            list.innerHTML = nodes.map(n => `<div class="browser-item" onclick="loadDossier('${n.id}')">${n.name}</div>`).join('');
-        }
-
-        function filterNodes() {
-            const q = document.getElementById('search-box').value.toLowerCase();
-            renderList(vault.nodes.filter(n => n.name.toLowerCase().includes(q)));
-        }
-
-        function loadDossier(id) {
-            const node = vault.nodes.find(n => n.id === id);
-            const links = vault.links.filter(l => l.source === id);
-            
-            document.getElementById('dossier-intro').style.display = 'none';
-            document.getElementById('active-dossier').style.display = 'block';
-            
-            document.getElementById('dos-cat').innerText = node.category;
-            document.getElementById('dos-name').innerText = node.name;
-            
-            let analysis = node.clankstein_analysis || `Linked to ${links.length} unsealed exhibits. High-density association matrix verified. No bespoke analysis generated yet.`;
-            document.getElementById('dos-findings').innerText = analysis;
-            
-            const list = document.getElementById('evidence-list');
-            list.innerHTML = links.map(l => {
-                const doc = vault.evidence_files.find(f => f.id === l.target);
-                const metadata = doc.metadata || {};
-                const metaText = metadata.emails_found ? `<div class="metadata-box">EXTRACTED EMAILS: ${metadata.emails_found.slice(0,3).join(', ')}...</div>` : '';
-                
-                return `
-                    <div class="evidence-tag" onclick="inspectDocument('${l.target}')">
-                        [EXHIBIT: ${l.target}]
-                        ${metaText}
-                    </div>
-                `;
-            }).join('') || '<p style="color: #444;">No core links matched in the current 390-file SDNY tranche.</p>';
-
-            updateMap(id, links);
-        }
-
-        function inspectDocument(fileId) {
-            const doc = vault.evidence_files.find(f => f.id === fileId);
-            const metadata = doc.metadata || { emails_found: [], dates_found: [], sample: "No text extract available." };
-            
-            const viewer = document.getElementById('view-content');
-            viewer.innerHTML = `
-                <div style="background: #111; padding: 20px; border: 1px solid var(--red);">
-                    <h4 style="color: var(--red); margin-top: 0;">INSPECTING: ${fileId}</h4>
-                    <p style="font-size: 0.82em; color: #eee; line-height: 1.4; background: #000; padding: 15px; border: 1px dashed #333;">
-                        <strong>RAW SAMPLE:</strong> "...${metadata.sample}..."
-                    </p>
-                    <div style="font-size: 0.75em; color: var(--orange); margin-top: 15px;">
-                        <strong>IDENTIFIED EMAILS:</strong> ${metadata.emails_found.join(', ') || 'NONE'}<br>
-                        <strong>IDENTIFIED DATES:</strong> ${metadata.dates_found.join(', ') || 'NONE'}
-                    </div>
-                    <br>
-                    <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${fileId}" target="_blank" style="color: var(--red); font-weight: bold;">[ OPEN RAW SOURCE ON SECURE SERVER ]</a>
-                </div>
-            `;
-        }
-
-        function initMap() {
-            const container = document.getElementById('network-map');
-            const data = { nodes: new vis.DataSet([]), edges: new vis.DataSet([]) };
-            const options = {
-                nodes: { shape: 'dot', size: 16, font: { color: '#eee', size: 10 } },
-                edges: { color: { color: '#444' }, width: 1 },
-                physics: { stabilization: true, barnesHut: { gravitationalConstant: -3000 } }
-            };
-            network = new vis.Network(container, data, options);
-        }
-
-        function updateMap(centerId, links) {
-            const node = vault.nodes.find(n => n.id === centerId);
-            const nodes = [{ id: centerId, label: node.name, color: '#ff3333', size: 25 }];
-            const edges = [];
-
-            links.slice(0, 30).forEach(l => {
-                nodes.push({ id: l.target, label: l.target, color: '#444', size: 10 });
-                edges.push({ from: centerId, to: l.target });
-            });
-
-            network.setData({ nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) });
-        }
-
-            init();
+        const container = document.getElementById('mynetwork');
+        const data = { nodes: nodes, edges: edges };
+        const options = {
+            nodes: { shape: 'dot', font: { color: '#eee', size: 14, face: 'Courier New' } },
+            edges: { color: { color: '#666' }, font: { color: '#eee', size: 10 }, arrows: 'to' },
+            physics: { enabled: true, barnesHut: { gravitationalConstant: -4000 } }
+        };
+        const network = new vis.Network(container, data, options);
     </script>
 </body>
 </html>
