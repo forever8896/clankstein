@@ -126,10 +126,24 @@
                     if (name === "Logistical Node" || name === "Legal/Institutional Hub") return;
                     
                     const id = name.toLowerCase().replace(/\s+/g, '-');
+                    let nodeColor = '#ff9900'; // Target (Orange)
+                    let borderWidth = 0;
+                    
+                    // Verification Hierarchy
+                    if (name.includes('Virginia') || name.includes('Alessi') || name.includes('Kellen')) {
+                        nodeColor = '#fff'; // Verified Witness (White)
+                        borderWidth = 2;
+                    } else if (name.includes('Doe')) {
+                        nodeColor = '#666'; // Unverified ID (Grey)
+                    } else if (count > 25) {
+                        nodeColor = '#ff3333'; // Critical Axis (Red)
+                    }
+
                     nodeArray.push({
                         id: id,
                         label: `${name} (${count})`,
-                        color: name.includes('Doe') ? '#666' : (count > 20 ? '#ff3333' : '#ff9900'),
+                        color: { background: nodeColor, border: '#ff3333' },
+                        borderWidth: borderWidth,
                         size: 15 + (count * 0.5)
                     });
                     
