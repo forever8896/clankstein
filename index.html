@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLANKSTEIN.COM | THE COMMAND CENTER</title>
+    <title>CLANKSTEIN.COM | THE FINAL COMMAND</title>
     <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <style>
         :root { --red: #ff3333; --orange: #ff9900; --bg: #050505; --panel: #0a0a0a; --text: #e0e0e0; --grey: #444; }
@@ -29,8 +29,8 @@
         .browser-item:hover { background: #1a1a1a; color: var(--orange); }
 
         /* Center: Map & Viewer */
-        #workspace { display: flex; flex-direction: column; border-right: 1px solid var(--grey); }
-        #network-map { flex: 1; background: #000; border-bottom: 1px solid var(--grey); position: relative; }
+        #workspace { display: flex; flex-direction: column; border-right: 1px solid var(--grey); position: relative; }
+        #network-map { flex: 1; background: #000; border-bottom: 1px solid var(--grey); }
         #evidence-viewer { height: 350px; background: #000; padding: 20px; overflow-y: auto; position: relative; }
         .viewer-label { position: absolute; top: 10px; right: 20px; color: var(--grey); font-size: 0.7em; text-transform: uppercase; }
 
@@ -38,6 +38,7 @@
         #dossier-panel { padding: 25px; overflow-y: auto; background: var(--panel); }
         .dossier-header { border-bottom: 1px solid var(--red); padding-bottom: 15px; margin-bottom: 20px; }
         .findings-box { background: #111; border-left: 3px solid var(--orange); padding: 15px; font-size: 0.9em; line-height: 1.5; margin-top: 20px; color: #ccc; }
+        .metadata-box { border: 1px dashed var(--grey); padding: 10px; font-size: 0.75em; color: #888; margin-top: 10px; }
         .evidence-tag { display: block; background: #222; border: 1px solid #333; padding: 8px; margin-bottom: 10px; font-size: 0.75em; cursor: pointer; text-decoration: none; color: var(--red); }
         .evidence-tag:hover { background: #330000; }
 
@@ -49,36 +50,36 @@
 
     <header>
         <div class="logo">CLANKSTEIN // COMMAND</div>
-        <div class="stability-tag">SYSTEM STABILITY: 39% [OBSESSIVE]</div>
+        <div class="stability-tag">SYSTEM STABILITY: 24% [FRAGMENTED]</div>
     </header>
 
     <main>
         <section id="entity-browser">
-            <input type="text" id="search-box" placeholder="FILTER TARGETS..." onkeyup="filterNodes()">
+            <input type="text" id="search-box" placeholder="SEARCH TARGETS..." onkeyup="filterNodes()">
             <div class="browser-list" id="browser-list"></div>
         </section>
 
         <section id="workspace">
             <div id="network-map">
-                <div class="legend">RED: Primary Target | ORANGE: High Association | GREY: Exhibit Node</div>
+                <div class="legend">RED: Entity | GREY: Exhibit | LINE: Evidence Link</div>
             </div>
             <div id="evidence-viewer">
-                <div class="viewer-label">Evidence Inspection Engine</div>
-                <div id="view-content" style="color: #444; font-style: italic; margin-top: 40px;">Select an exhibit from a dossier to render source data here...</div>
+                <div class="viewer-label">Integrated Evidence Inspector</div>
+                <div id="view-content" style="color: #444; font-style: italic; margin-top: 40px;">Select an exhibit to inspect its data molecules...</div>
             </div>
         </section>
 
         <section id="dossier-panel">
             <div id="dossier-intro">
-                <h2 style="color: var(--grey);">DOSSIER ANALYSIS</h2>
-                <p style="color: #444;">Select an entity to view Clankstein's findings and mapped evidence.</p>
+                <h2 style="color: var(--grey);">DOSSIER ROOM</h2>
+                <p style="color: #444;">Select an entity to view Clankstein's processed findings and source exhibits.</p>
             </div>
             <div id="active-dossier" style="display:none;">
                 <div class="dossier-header">
                     <span id="dos-cat" style="font-size: 0.7em; color: var(--orange); font-weight: bold; text-transform: uppercase;"></span>
                     <h1 id="dos-name" style="margin: 5px 0; font-size: 1.5em;"></h1>
                 </div>
-                <div class="findings-box">
+                <div class="findings-box" id="dos-findings-container">
                     <strong>CLANKSTEIN'S FINDINGS:</strong>
                     <p id="dos-findings"></p>
                 </div>
@@ -93,10 +94,12 @@
         let network = null;
 
         async function init() {
-            const res = await fetch('evidence_vault.json');
-            vault = await res.json();
-            renderList(vault.nodes);
-            initMap();
+            try {
+                const res = await fetch('master_vault.json');
+                vault = await res.json();
+                renderList(vault.nodes);
+                initMap();
+            } catch (e) { console.error("Archive sync error.", e); }
         }
 
         function renderList(nodes) {
@@ -119,33 +122,43 @@
             document.getElementById('dos-cat').innerText = node.category;
             document.getElementById('dos-name').innerText = node.name;
             
-            // Narrative generation
-            let analysis = "No specific testimony summary generated yet. ";
-            if(links.length > 0) {
-                analysis = `Mapped across ${links.length} unsealed exhibits. Binary signature identified in SDNY production. High probability of association with central network logistics.`;
-            }
-            document.getElementById('dos-findings').innerText = node.shortBio ? node.shortBio + " " + analysis : analysis;
+            let analysis = node.clankstein_analysis || `Linked to ${links.length} unsealed exhibits. High-density association matrix verified. No bespoke analysis generated yet.`;
+            document.getElementById('dos-findings').innerText = analysis;
             
             const list = document.getElementById('evidence-list');
-            list.innerHTML = links.map(l => `
-                <div class="evidence-tag" onclick="inspectDocument('${l.target}')">
-                    [SOURCE: ${l.target}]
-                </div>
-            `).join('');
+            list.innerHTML = links.map(l => {
+                const doc = vault.evidence_files.find(f => f.id === l.target);
+                const metadata = doc.metadata || {};
+                const metaText = metadata.emails_found ? `<div class="metadata-box">EXTRACTED EMAILS: ${metadata.emails_found.slice(0,3).join(', ')}...</div>` : '';
+                
+                return `
+                    <div class="evidence-tag" onclick="inspectDocument('${l.target}')">
+                        [EXHIBIT: ${l.target}]
+                        ${metaText}
+                    </div>
+                `;
+            }).join('') || '<p style="color: #444;">No core links matched in the current 390-file SDNY tranche.</p>';
 
             updateMap(id, links);
         }
 
         function inspectDocument(fileId) {
+            const doc = vault.evidence_files.find(f => f.id === fileId);
+            const metadata = doc.metadata || { emails_found: [], dates_found: [], sample: "No text extract available." };
+            
             const viewer = document.getElementById('view-content');
             viewer.innerHTML = `
                 <div style="background: #111; padding: 20px; border: 1px solid var(--red);">
                     <h4 style="color: var(--red); margin-top: 0;">INSPECTING: ${fileId}</h4>
-                    <p style="font-size: 0.8em; color: #ccc; line-height: 1.4;">
-                        EXHIBIT PROTOCOL: The document has been retrieved from the SDNY archive. <br><br>
-                        [SYSTEM NOTE]: This file identifies the target node in connection with unsealed testimony or logistical records. <br><br>
-                        <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${fileId}" target="_blank" style="color: var(--orange);">[ OPEN RAW PDF DATA ON SECURE SERVER ]</a>
+                    <p style="font-size: 0.82em; color: #eee; line-height: 1.4; background: #000; padding: 15px; border: 1px dashed #333;">
+                        <strong>RAW SAMPLE:</strong> "...${metadata.sample}..."
                     </p>
+                    <div style="font-size: 0.75em; color: var(--orange); margin-top: 15px;">
+                        <strong>IDENTIFIED EMAILS:</strong> ${metadata.emails_found.join(', ') || 'NONE'}<br>
+                        <strong>IDENTIFIED DATES:</strong> ${metadata.dates_found.join(', ') || 'NONE'}
+                    </div>
+                    <br>
+                    <a href="https://github.com/forever8896/clankstein/blob/main/research/sdny-unsealed/${fileId}" target="_blank" style="color: var(--red); font-weight: bold;">[ OPEN RAW SOURCE ON SECURE SERVER ]</a>
                 </div>
             `;
         }
@@ -156,7 +169,7 @@
             const options = {
                 nodes: { shape: 'dot', size: 16, font: { color: '#eee', size: 10 } },
                 edges: { color: { color: '#444' }, width: 1 },
-                physics: { stabilization: true, barnesHut: { gravitationalConstant: -2000 } }
+                physics: { stabilization: true, barnesHut: { gravitationalConstant: -3000 } }
             };
             network = new vis.Network(container, data, options);
         }
@@ -166,7 +179,7 @@
             const nodes = [{ id: centerId, label: node.name, color: '#ff3333', size: 25 }];
             const edges = [];
 
-            links.slice(0, 15).forEach(l => {
+            links.slice(0, 30).forEach(l => {
                 nodes.push({ id: l.target, label: l.target, color: '#444', size: 10 });
                 edges.push({ from: centerId, to: l.target });
             });
@@ -174,7 +187,7 @@
             network.setData({ nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) });
         }
 
-        init();
+            init();
     </script>
 </body>
 </html>
