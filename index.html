@@ -105,7 +105,10 @@
             { id: 5, label: 'Bill Clinton', color: '#ff9900', size: 25 },
             { id: 6, label: 'N908JE (Plane)', color: '#444', size: 20 },
             { id: 7, label: 'Masseuse List', color: '#444', size: 20 },
-            { id: 8, label: 'Little St. James', color: '#444', size: 20 }
+            { id: 8, label: 'Little St. James', color: '#444', size: 20 },
+            { id: 101, label: 'Doe-101', color: '#666', size: 15 },
+            { id: 102, label: 'Doe-107 [V]', color: '#ff9900', size: 20 },
+            { id: 103, label: 'Doe-110', color: '#666', size: 15 }
         ]);
 
         const edges = new vis.DataSet([
@@ -116,7 +119,9 @@
             { from: 3, to: 1, label: 'Associate' },
             { from: 4, to: 1, label: 'Client' },
             { from: 5, to: 6, label: 'Passenger' },
-            { from: 7, to: 6, label: 'Logistics' }
+            { from: 7, to: 6, label: 'Logistics' },
+            { from: 102, to: 3, label: 'Verified ID' },
+            { from: 102, to: 7, label: 'Recruitment' }
         ]);
 
         const container = document.getElementById('mynetwork');
