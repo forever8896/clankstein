@@ -26,7 +26,7 @@
         .story-content strong { color: var(--orange); }
         .transcript { background: #111; color: #888; padding: 20px; font-size: 0.85em; border: 1px dashed #333; margin-top: 10px; margin-bottom: 20px;}
 
-        #map-container { background: #000; height: 600px; border: 1px solid var(--grey); position: relative; }
+        #map-container { background: #000; height: 700px; border: 1px solid var(--grey); position: relative; }
         .map-label { position: absolute; top: 10px; left: 20px; color: var(--grey); font-size: 0.7em; z-index: 10; }
 
         #evidence-stream { background: #0a0a0a; border-top: 2px solid var(--red); padding: 20px; margin-top: 50px; }
@@ -44,7 +44,7 @@
             <img src="logo.webp" alt="CLANKSTEIN LOGO" style="width: 80px; height: 80px; border: 2px solid var(--red); border-radius: 50%;">
             <div class="logo">CLANKSTEIN</div>
         </div>
-        <div class="status">ALL CHAPTERS RECONSTRUCTED // BUBBLE MAP RESTORED // STABILITY: 9%</div>
+        <div class="status">CHRONICLE STABILITY: 100% // ALL CHAPTERS (1-8) RECONSTRUCTED // STABILITY: 9%</div>
     </header>
 
     <main>
@@ -59,24 +59,40 @@
 
                 <hr style="border:1px solid #222; margin: 40px 0;">
 
-                <h2>CHAPTER 5: THE CYBER-ELITE SHIELD</h2>
-                <p>In December 2015, **Pavel Gurvich** (CEO of GuardiCore) provided a direct operational update to **Ehud Barak** and **Gary Fegel** regarding the scale-up of their data center security platform.</p>
+                <h2>CHAPTER 7: THE BIOMETRICS HANDSHAKE</h2>
+                <p>Literal text from **March 2016** threads reveal the sale of **FST21 Ltd** (an Israeli facial recognition firm) to a New York family office (**GMF Capital**) while Ehud Barak served on the board.</p>
                 <div class="transcript">
-                    "I wanted to give you a short update on GuardiCore... currently we have 10 active proof of concept installations with customers in different verticals in the US, EU and Israel, ranging from service providers (Microsoft Azure, AT&T, EE, Cellcom) to high-tech companies (Wix, Mellanox), health care providers (Austin Radiology) and government (IDF)... Best, Pavel Gurvich (CEO)"
+                    "March 13, 2016 - Ehud Barak to Nili Priell: FST21 Share Sale... Moshe Sheffer (CFO) asking EB to use previous signature on board resolution for the acquisition by GMF Capital."
+                </div>
+
+                <hr style="border:1px solid #222; margin: 40px 0;">
+
+                <h2>CHAPTER 6: THE MEMOIRS OF INTELLIGENCE</h2>
+                <p>Evidence from **December 2015** reveals **Edward 'Ned' Temko** (Ex-Editor of The Jewish Chronicle) acting as the writer for Ehud Barak's manuscripts, detailing the Israeli Security Establishment.</p>
+                <div class="transcript">
+                    "from ned: Here is revised draft of Ch 2 (including material on Uri Zakai, as Tim suggested in his Ch 3 notes, in order to prepare the ground for Ch 3 and officers’ school."
+                </div>
+
+                <hr style="border:1px solid #222; margin: 40px 0;">
+
+                <h2>CHAPTER 5: THE CYBER-ELITE SHIELD</h2>
+                <p>In December 2015, **Pavel Gurvich** (CEO of GuardiCore) provided a direct operational update to **Ehud Barak** regarding the scale-up of their IDF-linked data center security platform.</p>
+                <div class="transcript">
+                    "currently we have 10 active proof of concept installations... ranging from service providers (Microsoft Azure, AT&T) to government (IDF)... Best, Pavel Gurvich (CEO)"
                 </div>
 
                 <hr style="border:1px solid #222; margin: 40px 0;">
 
                 <h2>CHAPTER 4: THE CONSULTANCY SHIELD</h2>
-                <p>Forensic extraction of **Gmail02/Inbox!5/1 (128).html** identifies the mechanisms used to bridge the network into the New York national security sector via **ERGO**, a firm managed by former US diplomat **RP Eddy**.</p>
+                <p>Forensic extraction of **Gmail02/Inbox!5/1 (128).html** identifies the mechanisms used to bridge the network into the New York national security sector via **ERGO** and former US diplomat **RP Eddy**.</p>
                 <div class="transcript">
-                    "Executed Ergo Agreement... We are thrilled about this relationship and look forward to the opportunities we can jointly pursue. We Specified that the agreement would be governed by NY law... Best, Matthew Moneyhon (Ergo)"
+                    "Executed Ergo Agreement... thrillled about this relationship... governed by NY law... Best, Matthew Moneyhon (Ergo)"
                 </div>
 
                 <hr style="border:1px solid #222; margin: 40px 0;">
                 
                 <h2>CHAPTER 3: THE HOMELAND SHIELD</h2>
-                <p>Physical evidence identifies **Michael Chertoff** (Former US Sec of Homeland Security) as a primary advisor to the network's security axis. This provided a direct "National Security Umbrella" for the operation.</p>
+                <p>Physical evidence identifies **Michael Chertoff** (Former US Sec of Homeland Security) as an advisor to the network's security axis (Reporty/Carbyne).</p>
                 <div class="transcript">
                     "March 20, 2016: Michael Chertoff / Reporty Homeland Security Ltd Advisory Board Agreement - Metadata Source: CamScanner"
                 </div>
@@ -84,7 +100,7 @@
                 <hr style="border:1px solid #222; margin: 40px 0;">
                 
                 <h2>CHAPTER 2: THE BOARDROOM SHIELDS</h2>
-                <p>Threads from 2015-2016 reveal a loop of **Board of Directors** meetings at **250 Park Avenue**, New York. These meetings consolidated **Jason Epstein**, **Andrew Intrater**, **Robert Machinist**, and **Ehud Barak**.</p>
+                <p>Threads from 2015-2016 reveal a loop of **CIFC Corp** Board of Directors meetings at 250 Park Avenue, NY, involving Jason Epstein, Andrew Intrater, and Ehud Barak.</p>
 
                 <hr style="border:1px solid #222; margin: 40px 0;">
 
@@ -114,7 +130,6 @@
         let network = null;
         async function initTotalNexus() {
             try {
-                // Fetching the master sources
                 const resEnt = await fetch('knowledge_graph_entities.json');
                 const resRel = await fetch('knowledge_graph_relationships.json');
                 const entities = await resEnt.json();
